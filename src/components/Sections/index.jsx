@@ -1,20 +1,18 @@
 import './sections.scss';
 
-export default function Sections({sections}) {
+export default function Sections({sections, backgrounds}) {
   return (
     <div id="sections">
-      {sections.map(k => {
+      {sections.map((k,i) => {
         return (
           <div
             key={"section_" + k}
             data-slideId={"s_" + k}
             className="section"
-            // style={{backgroundColor: backgrounds[i]}}
+            style={{backgroundColor: backgrounds[i]}}
           >
             <div className="content">
-              <div className="fixed">
-                <h1>Page {k}</h1>
-              </div>
+              <h1>Page {k}</h1>
             </div>
           </div>
         );

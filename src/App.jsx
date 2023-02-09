@@ -63,7 +63,7 @@ export default function App() {
   };
 
   const navProps = {active, previous, next, sections, gotoPage};
-  const sectionsProps = {sections};
+  const sectionsProps = {sections, backgrounds};
 
   return (
     <div className="App">
