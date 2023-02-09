@@ -4,7 +4,7 @@
 }
 
 #sections {
-  position: fixed;
+  position: absolute;
   top:0; left:0;
   width: 100%;
   height: 100%;
@@ -16,18 +16,23 @@
   flex-direction: row;
   overflow:hidden;
   
-  transition:background 1s ease-in-out;
+  will-change:background-color;
+  transition:background-color var(--timing-out) ease-in-out;
 
   .section {
     box-sizing: border-box;
     margin:0; padding:0;
     position: absolute;
-    top: 0; left: 0;
+    top: 0; left: 0; right:0; bottom:0;
     width: 100%;
-    height: 100%;
+    height: auto;
         
     .content {
-      position:  relative;
+      position:  static;
+      top:0; left:0;
+      display:block;
+      border:1px solid;
+      min-width: 100%;
       width:100%;
       height: 100%;
       overflow: hidden;
@@ -36,9 +41,12 @@
       display:flex;
       align-items:center;
       justify-content:center;
+      white-space:nowrap;
 
       h1 {
         font-size:500px;
+        display:inline-block;
+
       }
       
     }
@@ -49,15 +57,9 @@
 // ANIMATIONS
 #sections {
 
-  .section {
-    left:100%;
-    width:100%;
-  }
-
   .active{
     z-index:200;
-    left:0;
-    width:100%;
+    // width:100%;
   }
   
   .toResetLeft{
@@ -86,38 +88,43 @@
  
 }
 
+// SLIDE
+// @keyframes moveToLeft {
+// 	0% { left:100%; }
+// 	100% { left:0; }
+// }
+
+// @keyframes moveToRight {
+// 	0% { left:-100%; }
+// 	100% { left:0; }
+// }
+
+// @keyframes moveToResetLeft {
+// 	0%{ left:0%;}
+//   100% { left:-100%;}
+// }
+
+// @keyframes moveToResetRight{
+// 	0%{ left:0%;}
+//   100% { left:100%;}
+// }
+
 @keyframes moveToLeft {
-	0% {
-    left:100%; 
-  }
-	100% { 
-    left:0; 
-  }
+	// 0% { width:100%; }
+	// 100% { width:0; }
 }
 
-@keyframes moveToRight {
-	0% {
-    left:-100%; 
-  }
-	100% { 
-    left:0; 
-  }
-}
+// @keyframes moveToRight {
+// 	0% { width:100%; }
+// 	100% { width:0; }
+// }
 
 @keyframes moveToResetLeft {
-	0%{
-    left:0%;
-  }
-  100% {
-    left:-100%;
-  }
+	// 0%{ width:0%;}
+  // 100% { width:100%;}
 }
 
-@keyframes moveToResetRight{
-	0%{
-    left:0%;
-  }
-  100% {
-    left:100%;
-  }
-}
+// @keyframes moveToResetRight{
+// 	0%{ width:0%;}
+//   100% { width:100%;}
+// }
