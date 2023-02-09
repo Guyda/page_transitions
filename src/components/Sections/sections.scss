@@ -1,0 +1,135 @@
+#sections {
+  position: fixed;
+  top:0; left:0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index:10;
+
+  display: flex;
+  flex-direction: row;
+  overflow:hidden;
+  
+  transition:background 1s ease-in-out;
+
+  .section {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+        
+    .content {
+      position:  relative;
+      border: 1px solid rgba(0,0,0,.5);
+      width:100%;
+      height: 100%;
+      overflow: hidden;
+      z-index:10;
+      
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      .fixed {
+        display:block;
+        width:1100px;
+        min-width:100%;
+        margin:0 auto;
+        h1 {
+          font-size:500px;
+        }
+      }
+    }
+  }
+}
+
+
+// ANIMATIONS
+#sections {
+
+  .section {
+    left:100%;
+    width:100%;
+  }
+
+  .active{
+    z-index:200;
+    left:0;
+    width:100%;
+
+    .content {
+
+      .fixed {
+        left: 50%;
+      }
+    }
+  }
+  
+  .toResetLeft{
+    z-index:10;
+    animation: moveToResetLeft 1.33s ease both;
+  }
+  
+  .toResetRight{
+    z-index:10;
+    animation: moveToResetRight 1.33s ease both;
+  }
+  
+  .toLeft {
+    z-index:200;
+    animation: moveToLeft 1s ease both;
+  }
+  
+  .toRight {
+    z-index:200;
+    animation: moveToRight 1s ease both;
+  }
+ 
+}
+
+@keyframes swipeContent {
+  0% { 
+    width:100%;
+  }
+  100% { 
+    width:0%;
+  }
+}
+
+@keyframes moveToLeft {
+	0% {
+    left:100%; 
+  }
+	100% { 
+    left:0; 
+  }
+}
+
+@keyframes moveToRight {
+	0% {
+    left:-100%; 
+  }
+	100% { 
+    left:0; 
+  }
+}
+
+@keyframes moveToResetLeft {
+	0%{
+    left:0%;
+  }
+  100% {
+    left:-100%;
+  }
+}
+
+@keyframes moveToResetRight{
+	0%{
+    left:0%;
+  }
+  100% {
+    left:100%;
+  }
+}

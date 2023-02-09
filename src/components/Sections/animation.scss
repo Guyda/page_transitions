@@ -1,0 +1,61 @@
+#pages {
+  // will-change:background;
+  // transition: background 1s ease-in-out;
+  .page {
+    left:100%;
+    width:100%;
+  }
+
+  .active{
+    z-index:200;
+    left:0;
+    width:100%;
+
+    .content {
+
+      .fixed {
+        left: 50%;
+      }
+    }
+  }
+  
+  .toResetLeft{
+    z-index:10;
+    animation: moveToResetLeft 1.33s ease both;
+    
+    .content {
+      // will-change:width;
+      // transition: width 1.33s ease-in-out;
+      // width:0;
+    }
+  }
+  
+  .toResetRight{
+    z-index:10;
+    animation: moveToResetRight 1.33s ease both;
+    
+    .content {
+      // will-change:width;
+      // transition: width 1s .5s ease-in-out;
+      // width:0;
+    }
+  }
+  
+  .toLeft {
+    z-index:200;
+    animation: moveToLeft 1s ease both;
+    // .content {
+    //   width:100%;
+    // }
+  }
+  
+  .toRight {
+    z-index:200;
+    animation: moveToRight 1s ease both;
+    
+    // .content {
+    //   width:100%;
+    // }
+  }
+ 
+}
