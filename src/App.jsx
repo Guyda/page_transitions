@@ -24,7 +24,7 @@ export default function App() {
       
       let _old = slides[pair[0]];
       if(pair.length === 1){
-        _old.className = 'section active';
+        _old.className = 'section default active';
       }
       
       let _new = slides[pair[1]];
@@ -37,8 +37,8 @@ export default function App() {
         }
         if(_new){
           _new.className = pair[0] > pair[1] 
-             ? 'section toRight'
-             : 'section toLeft';
+             ? 'section active toRight'
+             : 'section active toLeft';
         }
        
       }
@@ -46,21 +46,14 @@ export default function App() {
     return updateAnimation();
   }, [pair])
 
+  function changeState(a) {
+    setPair([active, a]);
+    setActive(a)
+  }
 
-  const previous = () => {
-    setPair([active, active - 1]);
-    setActive(active - 1)
-  };
-  
-  const next = () => {
-    setPair([active, active + 1]);
-    setActive(active + 1)
-  };
-  
-  const gotoPage = (i) => {
-    setPair([active, i]);
-    setActive(i)
-  };
+  const previous = () => changeState(active - 1)
+  const next = () => changeState(active + 1);
+  const gotoPage = (i) => changeState(i);
 
   const navProps = {active, previous, next, sections, gotoPage};
   const sectionsProps = {sections, backgrounds};

@@ -1,61 +1,44 @@
-#pages {
-  // will-change:background;
-  // transition: background 1s ease-in-out;
-  .page {
-    left:100%;
-    width:100%;
-  }
+:root {
+  --timing-out:1.33s;
+  --timing-in:.77s;
+}
 
-  .active{
-    z-index:200;
-    left:0;
-    width:100%;
+// ANIMATIONS
+.toResetLeft {
+  animation: resetLeft var(--timing-out) ease both;
+}
 
-    .content {
+.toLeft {
+  animation: moveLeft var(--timing-in) ease both;
+}
 
-      .fixed {
-        left: 50%;
-      }
-    }
-  }
-  
-  .toResetLeft{
-    z-index:10;
-    animation: moveToResetLeft 1.33s ease both;
-    
-    .content {
-      // will-change:width;
-      // transition: width 1.33s ease-in-out;
-      // width:0;
-    }
-  }
-  
-  .toResetRight{
-    z-index:10;
-    animation: moveToResetRight 1.33s ease both;
-    
-    .content {
-      // will-change:width;
-      // transition: width 1s .5s ease-in-out;
-      // width:0;
-    }
-  }
-  
-  .toLeft {
-    z-index:200;
-    animation: moveToLeft 1s ease both;
-    // .content {
-    //   width:100%;
-    // }
-  }
-  
-  .toRight {
-    z-index:200;
-    animation: moveToRight 1s ease both;
-    
-    // .content {
-    //   width:100%;
-    // }
-  }
- 
+.toResetRight {
+  animation: resetRight var(--timing-out) ease both;
+}
+
+.toRight {
+  animation: moveRight var(--timing-in) ease both;
+}
+
+
+@keyframes moveRight {
+	0% { left:-100%; width:0%; }
+	100% { left:0%; width:100%;}
+}
+
+@keyframes moveLeft {
+	0% { left:100%; width:0%; }
+	100% { left:0%; width:100%;}
+}
+
+@keyframes resetRight {
+	0% { left:0; opacity:1;}
+  99% { left: 25%; width:100%; }
+	100% { left:25%; width:0%; opacity:0}
+}
+
+@keyframes resetLeft {
+	0% { left:0; opacity:1;}
+  99% { left: -25%; width:100%;}
+	100% { left:-25%; width:0%; opacity:0;}
 }
