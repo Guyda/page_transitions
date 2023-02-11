@@ -1,11 +1,12 @@
 :root {
-  --timing-out:1.33s;
-  --timing-in:.77s;
+  --timing-out:1s;
+  --timing-in:1s;
 }
 
 // ANIMATIONS
 .toResetLeft {
   animation: resetLeft var(--timing-out) ease both;
+  animation-delay: .2s;
 }
 
 .toLeft {
@@ -14,6 +15,7 @@
 
 .toResetRight {
   animation: resetRight var(--timing-out) ease both;
+  animation-delay: .2s;
 }
 
 .toRight {
@@ -32,13 +34,13 @@
 }
 
 @keyframes resetRight {
-	0% { left:0; opacity:1;}
-  99% { left: 25%; width:100%; }
-	100% { left:25%; width:0%; opacity:0}
+	0% { left:0; }
+  99% { left: 10%; width:100%; }
+	100% { left:10%; width:0%; }
 }
 
 @keyframes resetLeft {
-	0% { left:0; opacity:1;}
+	0% { left:0;  }
   99% { left: -25%; width:100%;}
-	100% { left:-25%; width:0%; opacity:0;}
+	100% { left:-25%; width:0%; }
 }
