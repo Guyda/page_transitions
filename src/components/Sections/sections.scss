@@ -12,7 +12,7 @@
   overflow:hidden;
   
   will-change:background-color;
-  transition:background-color var(--timing-out) ease-in-out;
+  transition:background-color var(--timing-out-left) ease-in-out;
 
   .section {
     box-sizing: border-box;
@@ -23,8 +23,14 @@
     z-index: -1;
     overflow:hidden;
 
+    transform-origin: right;
+
     &.default {
       left:0;
+
+      .content {
+        left:0%;
+      }
     }
 
     &.active {
@@ -33,7 +39,7 @@
         
     .content {
       position: absolute;
-      top:0; left:0;
+      top:0; left:-100%;
       display:block;
       width:100%;
       height: 100%;

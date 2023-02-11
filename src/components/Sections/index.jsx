@@ -7,7 +7,6 @@ export default function Sections({sections, backgrounds}) {
         return (
           <div
             key={"section_" + k}
-            data-slideId={"s_" + k}
             className="section"
             style={{backgroundColor: backgrounds[i]}}
           >
