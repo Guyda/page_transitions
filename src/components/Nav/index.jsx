@@ -1,16 +1,17 @@
 import './nav.scss';
+import {sections} from '../../data';
 
-export default function Nav({active, previous, next, sections, gotoPage}) {
+export default function Nav({active, previous, next, gotoPage}) {
   return (
     <nav>
       <div id="arrows">
         <button 
-         //</div>disabled={active === 0} 
+         disabled={active === 0} 
          onClick={previous}>
           &lt;
         </button>
         <button 
-         // </div>disabled={active === sections.length - 1} 
+         disabled={active === sections.length - 1} 
          onClick={next}>
           &gt;
         </button>

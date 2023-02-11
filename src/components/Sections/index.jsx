@@ -1,6 +1,7 @@
 import './sections.scss';
+import {sections, backgrounds} from '../../data';
 
-export default function Sections({sections, backgrounds}) {
+export default function Sections() {
   return (
     <div id="sections">
       {sections.map((k,i) => {

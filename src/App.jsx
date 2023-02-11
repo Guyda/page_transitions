@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Sections from './components/Sections';
+import {sections, backgrounds} from './data';
 
-const sections = [
-  {id:1, title:'HOME'},
-  {id:2, title:'WORK'},
-  {id:3, title:'RESUME'},
-  {id:4, title:'CONTACT'}
-];
-const backgrounds = ["#f8e8ba", "#96c4b2", "#f39230", "#d6e3c5"];
 
 export default function App() {
 
@@ -60,13 +54,12 @@ export default function App() {
   const next = () => changeState(active === sections.length - 1 ? 0 : active + 1);
   const gotoPage = (i) => changeState(i);
 
-  const navProps = {active, previous, next, sections, gotoPage};
-  const sectionsProps = {sections, backgrounds};
+  const navProps = {active, previous, next, gotoPage};
 
   return (
     <div className="App">
       <Nav {...navProps} />
-      <Sections {...sectionsProps} />
+      <Sections />
     </div>
   )
 };
