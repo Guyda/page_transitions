@@ -2,7 +2,12 @@ import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Sections from './components/Sections';
 
-const sections = [1, 2, 3, 4];
+const sections = [
+  {id:1, title:'HOME'},
+  {id:2, title:'WORK'},
+  {id:3, title:'RESUME'},
+  {id:4, title:'CONTACT'}
+];
 const backgrounds = ["#f8e8ba", "#96c4b2", "#f39230", "#d6e3c5"];
 
 export default function App() {
@@ -51,8 +56,8 @@ export default function App() {
     setActive(a)
   }
 
-  const previous = () => changeState(active - 1)
-  const next = () => changeState(active + 1);
+  const previous = () => changeState(active === 0 ? sections.length - 1 : active - 1)
+  const next = () => changeState(active === sections.length - 1 ? 0 : active + 1);
   const gotoPage = (i) => changeState(i);
 
   const navProps = {active, previous, next, sections, gotoPage};

@@ -6,8 +6,6 @@
   --timing-delay: .2s;
 }
 
-// ANIMATIONS
-// FORWARD
 .toResetLeft {
   animation: resetLeft var(--timing-out-left) ease both;
   animation-delay: var(--timing-delay);
@@ -18,22 +16,29 @@
 }
 
 .toLeft {
-  animation: moveLeft var(--timing-in-left) ease both;
+  animation:revealFromRight var(--timing-out-right) ease both;
 
   .content {
     animation: moveInFromLeft var(--timing-in-left) ease both;
   }
 }
 
-@keyframes moveLeft {
-	0% { left:100%; width:0%; }
-	100% { left:0%; width:100%;}
+@keyframes resetLeft {
+	0% {
+    clip-path: inset(0 0% 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
 }
 
-@keyframes resetLeft {
-	0% { left:0; }
-  99% { left: -25%; width:100%;}
-	100% { left:-25%; width:0%; }
+@keyframes revealFromRight {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @keyframes moveOutToRight {
@@ -42,45 +47,85 @@
 }
 
 @keyframes moveInFromLeft {
-	0% { left:-10%; }
+	0% { left:-25%; }
 	100% { left:0%; }
 }
+
+// ANIMATIONS
+// FORWARD
+// .toResetLeft {
+//   animation: resetLeft var(--timing-out-left) ease both;
+//   animation-delay: var(--timing-delay);
+
+//   // .content {
+//   //   animation: moveOutToRight var(--timing-out-left) ease both;
+//   // }
+// }
+
+// .toLeft {
+//   animation: moveLeft var(--timing-in-left) ease both;
+
+//   // .content {
+//   //   animation: moveInFromLeft var(--timing-in-left) ease both;
+//   // }
+// }
+
+// @keyframes moveLeft {
+// 	0% { left:100%; width:0%; }
+// 	100% { left:0%; width:100%;}
+// }
+
+// @keyframes resetLeft {
+// 	0% { left:0; }
+//   99% { left: -25%; width:100%; visible:visible;}
+// 	100% { left:-25%; width:0%; visible:hidden;}
+// }
+
+// @keyframes moveOutToRight {
+// 	0% { left:0%; }
+// 	100% { left:25%; }
+// }
+
+// @keyframes moveInFromLeft {
+// 	0% { left:-200%; }
+// 	100% { left:0%; }
+// }
 
 // BACKWARD
-.toResetRight{
-  animation: resetRight var(--timing-out-right) ease both;
+// .toResetRight{
+//   animation: resetRight var(--timing-out-right) ease both;
 
-  .content {
-    animation: moveOutToleft var(--timing-out-right) ease both;
-  }
-}
+//   // .content {
+//   //   animation: moveOutToleft var(--timing-out-right) ease both;
+//   // }
+// }
 
-.toRight{
-  animation: moveRight var(--timing-in-right) ease both;
+// .toRight{
+//   animation: moveRight var(--timing-in-right) ease both;
 
-  .content {
-    animation: moveInFromRight var(--timing-in-right) ease both;
-  }
-}
+//   // .content {
+//   //   animation: moveInFromRight var(--timing-in-right) ease both;
+//   // }
+// }
 
 
-@keyframes moveRight{
-	0% { left:-25%; width:0%; }
-	100% { left:0%; width:100%;}
-}
+// @keyframes moveRight{
+// 	0% { left:-25%; width:0%; }
+// 	100% { left:0%; width:100%;}
+// }
 
-@keyframes resetRight{
-	0% { left:0; }
-  99% { left:25%; width: 100%; visible:visible;}
-	100% { left:25%; width:0%; visible:hidden;}
-}
+// @keyframes resetRight{
+// 	0% { left:0; }
+//   99% { left:25%; width: 100%; visible:visible;}
+// 	100% { left:25%; width:0%; visible:hidden;}
+// }
 
-@keyframes moveOutToleft {
-	0% { left:0%; }
-	100% { left:-50%; }
-}
+// @keyframes moveOutToleft {
+// 	0% { left:0%; }
+// 	100% { left:-50%; }
+// }
 
-@keyframes moveInFromRight{
-	0% { left:75%; }
-	100% { left:0%; }
-}
+// @keyframes moveInFromRight{
+// 	0% { left:-10%; }
+// 	100% { left:0%; }
+// }

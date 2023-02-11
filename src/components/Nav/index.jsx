@@ -4,10 +4,14 @@ export default function Nav({active, previous, next, sections, gotoPage}) {
   return (
     <nav>
       <div id="arrows">
-        <button disabled={active === 0} onClick={previous}>
+        <button 
+         //</div>disabled={active === 0} 
+         onClick={previous}>
           &lt;
         </button>
-        <button disabled={active === sections.length - 1} onClick={next}>
+        <button 
+         // </div>disabled={active === sections.length - 1} 
+         onClick={next}>
           &gt;
         </button>
       </div>
@@ -18,7 +22,7 @@ export default function Nav({active, previous, next, sections, gotoPage}) {
             disabled={active === i}
             onClick={() => gotoPage(i)}
           >
-            {k}
+            {k.title}
           </button>
         ))}
       </div>

@@ -6,12 +6,12 @@ export default function Sections({sections, backgrounds}) {
       {sections.map((k,i) => {
         return (
           <div
-            key={"section_" + k}
+            key={"section_" + i}
             className="section"
             style={{backgroundColor: backgrounds[i]}}
           >
             <div className="content">
-              <h1>Page {k}</h1>
+              <h1>{k.title}</h1>
             </div>
           </div>
         );
