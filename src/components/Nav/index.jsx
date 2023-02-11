@@ -1,7 +1,6 @@
 import './nav.scss';
-import {sections} from '../../data';
 
-export default function Nav({active, previous, next, gotoPage}) {
+export default function Nav({active, previous, sections, next, gotoPage}) {
   return (
     <nav>
       <div id="arrows">

@@ -6,7 +6,6 @@
   --timing-delay: .2s;
 }
 
-
 // ANIMATIONS
 // FORWARD
 .toResetLeft {
@@ -16,6 +15,10 @@
   .content {
     animation: moveOutToRight var(--timing-out-left) ease both;
   }
+
+  .image {
+    animation: moveImageOutToLeft var(--timing-out-left) ease both;
+  }
 }
 
 .toLeft {
@@ -23,6 +26,10 @@
 
   .content {
     animation: moveInFromLeft var(--timing-in-left) ease both;
+  }
+
+  .image {
+    animation: moveImageInFromLeft var(--timing-out-left) ease both;
   }
 }
 
@@ -36,6 +43,11 @@
 	100% { left:25%; }
 }
 
+@keyframes moveImageOutToLeft {
+	0% { left:50%; }
+	100% { left:25%; }
+}
+
 @keyframes revealFromRight {
   0% { clip-path: inset(0 0 0 100%); }
   100% { clip-path: inset(0 0 0 0); }
@@ -45,13 +57,22 @@
 	0% { left:-25%; }
 	100% { left:0%; }
 }
+@keyframes moveImageInFromLeft {
+	0% { left:75%; }
+	100% { left:50%; }
+}
 
 // BACKWARD
 .toResetRight {
   animation: resetToRight var(--timing-out-left) ease both;
+  animation-delay: var(--timing-delay);
   
   .content {
     animation: moveOutToLeft var(--timing-out-left) ease both;
+  }
+
+  .image {
+    animation: moveImageOutToRight var(--timing-out-left) ease both;
   }
 }
 
@@ -60,6 +81,10 @@
   
   .content {
     animation: moveInFromRight var(--timing-in-left) ease both;
+  }
+
+  .image {
+    animation: moveImageInFromRight var(--timing-out-left) ease both;
   }
 }
 
@@ -72,6 +97,10 @@
 	0% { left:0%; }
 	100% { left:-25%; }
 }
+@keyframes moveImageOutToRight {
+	0% { left:50%; }
+	100% { left:75%; }
+}
 
 @keyframes revealFromLeft {
   0% { clip-path: inset(0 100% 0 0); }
@@ -81,4 +110,8 @@
 @keyframes moveInFromRight {
 	0% { left:25%; }
 	100% { left:0%; }
+}
+@keyframes moveImageInFromRight {
+	0% { left:25%; }
+	100% { left:50%; }
 }

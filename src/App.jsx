@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Nav from './components/Nav';
 import Sections from './components/Sections';
-import {sections, backgrounds} from './data';
+import {sections} from './data';
 
 
 export default function App() {
@@ -12,7 +12,7 @@ export default function App() {
   useEffect(() => {
     function changeBg() {
       const s = document.getElementById("sections");
-      s.style.backgroundColor = backgrounds[active];
+      s.style.backgroundColor = sections[active].bg;
     }
     return changeBg();
   }, [active]);
@@ -54,12 +54,13 @@ export default function App() {
   const next = () => changeState(active === sections.length - 1 ? 0 : active + 1);
   const gotoPage = (i) => changeState(i);
 
-  const navProps = {active, previous, next, gotoPage};
+  const navProps = {active, previous, sections, next, gotoPage};
+  const sectionsProps = {sections};
 
   return (
     <div className="App">
       <Nav {...navProps} />
-      <Sections />
+      <Sections {...sectionsProps} />
     </div>
   )
 };

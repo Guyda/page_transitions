@@ -1,7 +1,6 @@
 import './sections.scss';
-import {sections, backgrounds} from '../../data';
 
-export default function Sections() {
+export default function Sections({sections}) {
   return (
     <div id="sections">
       {sections.map((k,i) => {
@@ -9,8 +8,12 @@ export default function Sections() {
           <div
             key={"section_" + i}
             className="section"
-            style={{backgroundColor: backgrounds[i]}}
+            style={{backgroundColor: sections[i].bg}}
           >
+            <div className="count">{i+1}</div>
+            <div className="image">
+              <img src={sections[i].image} />
+            </div>
             <div className="content">
               <h1>{k.title}</h1>
             </div>
