@@ -50,10 +50,8 @@
 .toResetRight {
   animation: resetToRight var(--timing-out-left) ease both;
   
-
   .content {
     animation: moveOutToLeft var(--timing-out-left) ease both;
-    animation-delay: var(--timing-delay);
   }
 }
 
@@ -66,8 +64,8 @@
 }
 
 @keyframes resetToRight {
-	0% { clip-path: inset(0 0 0 0%); }
-  100% { clip-path: inset(0 100% 0 0%); }
+	from { clip-path: inset(0 0 0 0%); }
+  to { clip-path: inset(0 0 0 100%); }
 }
 
 @keyframes moveOutToLeft {
@@ -76,8 +74,8 @@
 }
 
 @keyframes revealFromLeft {
-  0% { clip-path: inset(0 0 0 100%); }
-  100% { clip-path: inset(0 0 0 0); }
+  0% { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
 }
 
 @keyframes moveInFromRight {
