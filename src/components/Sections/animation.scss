@@ -1,35 +1,43 @@
 :root {
-  --timing-out-left:1.66s;
-  --timing-in-left:1.33s;
-  --timing-out-right:1.66s;
-  --timing-in-right:1.33s;
+  --timing-out-left:1s;
+  --timing-in-left:.88s;
+  --timing-out-right:1s;
+  --timing-in-right:.88s;
   --timing-delay: .2s;
+  --bezier: cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
-// ANIMATIONS
+@mixin animation-vars($name, $duration){
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-timing-function: var(--bezier);
+  animation-fill-mode: both;
+}
+
 // FORWARD
 .toResetLeft {
-  animation: resetToLeft var(--timing-out-left) ease both;
+  @include animation-vars(resetToLeft, var(--timing-out-left));
   animation-delay: var(--timing-delay);
 
+
   .content {
-    animation: moveOutToRight var(--timing-out-left) ease both;
+    @include animation-vars(moveOutToRight, var(--timing-out-left));
   }
 
   .image {
-    animation: moveImageOutToLeft var(--timing-out-left) ease both;
+    @include animation-vars(moveImageOutToLeft, var(--timing-out-left));
   }
 }
 
 .toLeft {
-  animation: revealFromRight var(--timing-in-left) ease both;
+  @include animation-vars(revealFromRight, var(--timing-in-left));
 
   .content {
-    animation: moveInFromLeft var(--timing-in-left) ease both;
+    @include animation-vars(moveInFromLeft, var(--timing-in-left));
   }
 
   .image {
-    animation: moveImageInFromLeft var(--timing-out-left) ease both;
+    @include animation-vars(moveImageInFromLeft, var(--timing-out-left));
   }
 }
 
@@ -64,27 +72,29 @@
 
 // BACKWARD
 .toResetRight {
-  animation: resetToRight var(--timing-out-left) ease both;
+  @include animation-vars(resetToRight, var(--timing-out-left));
   animation-delay: var(--timing-delay);
   
   .content {
-    animation: moveOutToLeft var(--timing-out-left) ease both;
+    @include animation-vars(moveOutToLeft, var(--timing-out-left));
   }
 
   .image {
-    animation: moveImageOutToRight var(--timing-out-left) ease both;
+    @include animation-vars(moveImageOutToRight, var(--timing-out-left));
   }
 }
 
 .toRight {
-  animation: revealFromLeft var(--timing-in-left) ease both;
+  @include animation-vars(revealFromLeft, var(--timing-in-left));
   
   .content {
     animation: moveInFromRight var(--timing-in-left) ease both;
+    @include animation-vars(moveInFromRight, var(--timing-in-left));
   }
 
   .image {
     animation: moveImageInFromRight var(--timing-out-left) ease both;
+    @include animation-vars(moveImageInFromRight, var(--timing-out-left));
   }
 }
 
