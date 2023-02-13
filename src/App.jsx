@@ -10,14 +10,6 @@ export default function App() {
   const [pair, setPair] = useState([active])
 
   useEffect(() => {
-    function changeBg() {
-      const s = document.getElementById("sections");
-      s.style.backgroundColor = sections[active].bg;
-    }
-    return changeBg();
-  }, [active]);
-
-  useEffect(() => {
     function updateAnimation(){
       const slides = document.getElementsByClassName('section');
       

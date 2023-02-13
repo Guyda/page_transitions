@@ -1,5 +1,3 @@
-import './sections.scss';
-
 export default function Sections({sections}) {
   return (
     <div id="sections">

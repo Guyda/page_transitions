@@ -19,7 +19,6 @@
   @include animation-vars(resetToLeft, var(--timing-out-left));
   animation-delay: var(--timing-delay);
 
-
   .content {
     @include animation-vars(moveOutToRight, var(--timing-out-left));
   }
@@ -88,7 +87,6 @@
   @include animation-vars(revealFromLeft, var(--timing-in-left));
   
   .content {
-    animation: moveInFromRight var(--timing-in-left) ease both;
     @include animation-vars(moveInFromRight, var(--timing-in-left));
   }
 

@@ -1,5 +1,3 @@
-import './nav.scss';
-
 export default function Nav({active, previous, sections, next, gotoPage}) {
   return (
     <nav>
